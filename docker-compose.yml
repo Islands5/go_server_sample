@@ -1,0 +1,11 @@
+version: '3'
+services:
+  golang:
+    build: .docker/development/golang
+    command: /bin/sh -c "dep ensure && go run server.go"
+    volumes:
+      - ./src:/go/src/api
+    ports:
+      - 1323:1323
+    stdin_open: true
+    tty: true
